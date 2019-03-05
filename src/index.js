@@ -1,7 +1,8 @@
 import react from 'react'
 import reactDom from 'react-dom'
-import Home from "./component/home"
+// import Home from "./component/home.js"
 
-reactDom.render(
-  <Home/>, document.getElementById('root')
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.getElementById('root')
 )
