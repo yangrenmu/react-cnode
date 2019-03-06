@@ -1,0 +1,27 @@
+.navbar {
+  height: 50px;
+  line-height: 50px;
+  background: #444;
+  .navbar-inner {
+    display: flex;
+    align-items: center;
+    .brand {
+      display: inline-block;
+      height: 34px;
+      width: 120px;
+      line-height: 34px;
+      padding: 3px 20px;
+      img {
+        max-width: 100%;
+      }
+    }
+    .navbar-search {
+      display: inline-block;
+      .search-text {
+        width: 240px;
+        height: 20px;
+        border-radius: 15px;
+      }
+    }
+  }
+}
