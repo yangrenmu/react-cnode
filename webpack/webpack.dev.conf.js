@@ -1,10 +1,11 @@
 var path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, '../dist'),
     filename: 'bundle.[hash].js'
   },
   // resolve: 依赖的 module，被解决的方式
@@ -15,12 +16,17 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new CleanWebpackPlugin()
   ],
   // module: 对模块的源码进行转换
   module: {
     rules: [
       { test: /\.js|jsx$/, use: ['babel-loader'], exclude: /node_modules/ }
     ]
+  },
+  devServer: {
+    // noInfo: true,
+    stats: "errors-only"
   }
 }
