@@ -1,12 +1,10 @@
-import React from 'react'
-import Header from '../header/index.jsx'
+import React from "react"
+import Header from "../header/index.jsx"
 
-export default class Home extends React.Component {
-  render() {
-    return (
-      <div>
-        <Header />
-      </div>
-    )
-  }
+export default function Home() {
+  return (
+    <div>
+      <Header />
+    </div>
+  )
 }
