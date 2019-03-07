@@ -20,7 +20,11 @@
       .search-text {
         width: 240px;
         height: 20px;
+        padding: 3px 5px 3px 22px;
         border-radius: 15px;
+        border-width: 0px;
+        background: url("https://static2.cnodejs.org/public/images/search.e53b380a.hashed.png")
+          4px 4px no-repeat #888;
       }
     }
   }
