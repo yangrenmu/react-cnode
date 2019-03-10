@@ -31,11 +31,11 @@ module.exports = {
           "sass-loader" // 将 Sass 编译成 CSS，默认使用 Node Sass
         ]
       },
-      {test:/\.css$/,loader:'style-loader!css-loader'}
+      { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]
   },
   devServer: {
     // noInfo: true,
-    stats: "errors-only"
+    stats: "errors-only",
   }
 }
