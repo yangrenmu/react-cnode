@@ -2,7 +2,12 @@
 
 /* Document
    ========================================================================== */
-
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
 ul,
 menu,
 dir {
