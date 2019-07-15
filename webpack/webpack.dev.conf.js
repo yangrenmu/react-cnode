@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: 'bundle.[hash].js'
+    filename: 'bundle.[hash].js',
   },
   // resolve: 依赖的 module，被解决的方式
   resolve: {
@@ -39,5 +39,6 @@ module.exports = {
   devServer: {
     port: 3000,
     stats: "errors-only",
+    historyApiFallback: true,
   }
 }

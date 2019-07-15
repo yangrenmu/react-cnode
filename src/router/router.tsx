@@ -17,7 +17,7 @@ const Routers = () => (
     <Switch>
       <Route exact path="/home" component={Home} />
       <Route path="/getstart" component={Newer} />
-      <Route component={hh} />
+      {/* <Route component={hh} /> */}
     </Switch>
   </Router>
 )
