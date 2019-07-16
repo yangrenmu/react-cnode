@@ -6,18 +6,11 @@ import Newer from "../pages/getStart"
 
 const history = createBrowserHistory()
 
-const hh = () => {
-  return (
-    <div>sdfsdfsdf</div>
-  )
-}
-
 const Routers = () => (
   <Router history={history}>
     <Switch>
       <Route exact path="/home" component={Home} />
       <Route path="/getstart" component={Newer} />
-      {/* <Route component={hh} /> */}
     </Switch>
   </Router>
 )
