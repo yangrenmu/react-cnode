@@ -16,10 +16,9 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css}": [
-      "prettier --write",
-      "eslint --fix src/",
-      "tslint --fix --project .",
+    "**/*.{js,jsx,ts,tsx,css}": [
+      "eslint --fix",
+      "tslint --fix --project",
       "git add"
     ]
   },
@@ -35,7 +34,7 @@
     "@types/react-router-dom": "^4.3.4",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^7.1.4",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
