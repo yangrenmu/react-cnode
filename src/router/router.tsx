@@ -8,17 +8,17 @@ const history = createBrowserHistory()
 
 const hh = () => {
   return (
-    <div>sdfsdfsdf<div>
-      )
-    }
+    <div>sdfsdfsdf</div>
+  )
+}
 
-    const Routers = () => (
+const Routers = () => (
   <Router history={history}>
-        <Switch>
-          <Route exact path="/home" component={Home} />
-          <Route path="/getstart" component={Newer} />
-          {/* <Route component={hh} /> */}
-        </Switch>
-      </Router>
-      )
-      export default Routers
+    <Switch>
+      <Route exact path="/home" component={Home} />
+      <Route path="/getstart" component={Newer} />
+      {/* <Route component={hh} /> */}
+    </Switch>
+  </Router>
+)
+export default Routers
