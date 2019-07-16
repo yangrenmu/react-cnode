@@ -16,8 +16,10 @@
     }
   },
   "lint-staged": {
-    "src/**/*.tsx": [
-      "tslint --config tslint.json --fix",
+    "src/**/*.{js,jsx,ts,tsx,json,css}": [
+      "prettier --write",
+      "eslint --fix src/",
+      "tslint --fix --project .",
       "git add"
     ]
   },
