@@ -1,11 +1,11 @@
 import * as React from "react"
-import Header from "../header"
 
 export default class Newer extends React.Component {
   render() {
+    console.log('--------')
     return (
       <div>
-        <div>new user</div>
+        <div>all user</div>
       </div>
     )
   }

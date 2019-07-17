@@ -27,7 +27,7 @@
     "no-use-before-declare": false,
     "no-var-keyword": true,
     "no-var-requires": true,
-    "no-console": [true, "debug", "info", "log", "time", "timeEnd", "trace"],
+    "no-console": false,
     "no-unused-expression": false,
     "radix": true,
     "use-isnan": true,

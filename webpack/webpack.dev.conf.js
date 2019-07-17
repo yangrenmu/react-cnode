@@ -13,6 +13,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '../dist'),
     filename: 'bundle.[hash].js',
+    publicPath: '/'
   },
   // resolve: 依赖的 module，被解决的方式
   resolve: {
@@ -24,7 +25,12 @@ module.exports = {
       template: './src/index.html'
     }),
     new CleanWebpackPlugin(),
-    new FirendlyErrorWebpackPlugin(),
+    new FirendlyErrorWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: [`Your application is running here: http://${config.host}:${config.port}`],
+      },
+      clearConsole: true,
+    }),
     new OpenBrowserPlugin({
       url: `http://${config.host}:${config.port}`
     })
@@ -47,7 +53,9 @@ module.exports = {
       { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]
   },
+
   devServer: {
+    host: config.host,
     port: config.port,
     stats: 'errors-only',
     // 避免前端路由变成后端请求，true 时，所有路径都执行 index.html
@@ -55,7 +63,7 @@ module.exports = {
     // 浏览器控制台会出现实时重载的脚本
     inline: true,
     // 热替换
-    hot: true,
+    // hot: true,
     // 显示打包进度
     // progress: true
   },

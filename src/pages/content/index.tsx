@@ -1,40 +1,28 @@
 import * as React from "react"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
-import Start from "../getStart"
+import { Route, NavLink } from "react-router-dom"
+import All from "../all"
 import "./content.scss"
 export default class Content extends React.Component {
-  Home = () => (
-    <div>
-      <h2>Home</h2>
-    </div>
-  )
   render() {
     return (
       <div className="main">
-        <div className="header-bar">
-          <ul>
-            <li>
-              <Link to={"/all"}>全部</Link>
-            </li>
-            <li>
-              <Link to={"/home/good"}>精华</Link>
-            </li>
-            <li>
-              <Link to={"/home/share"}>分享</Link>
-            </li>
-            <li>
-              <Link to={"/home/answer"}>问答</Link>
-            </li>
-            <li>
-              <Link to={"/home/recruit"}>招聘</Link>
-            </li>
-            <li>
-              <Link to={"/home/dev"}>客户端测试</Link>
-            </li>
-          </ul>
-        </div>
         <div className="content">
-          <Route path="/all" component={Start} />
+          <div className="header-bar">
+            <NavLink activeClassName="active-link" className="link" to="/all">全部</NavLink>
+            <NavLink activeClassName="active-link" className="link" to="/home/good">精华</NavLink>
+            <NavLink activeClassName="active-link" className="link" to="/home/share">分享</NavLink>
+            <NavLink activeClassName="active-link" className="link" to="/home/answer">问答</NavLink>
+            <NavLink activeClassName="active-link" className="link" to="/home/recruit">招聘</NavLink>
+            <NavLink activeClassName="active-link" className="link" to="/home/dev">客户端测试</NavLink>
+          </div>
+          <Route path="/all" component={All} />
+        </div>
+        <div className="side-bar">
+          <div className="float">profile</div>
+          <div className="float">topic</div>
+          <div className="float">rank</div>
+          <div className="float">friend community</div>
+          <div className="float">app</div>
         </div>
       </div>
     )
