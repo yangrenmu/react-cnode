@@ -1,5 +1,5 @@
-const { ENV = 'development' } = process.env
 const os = require('os')
+const { ENV } = process.env
 const localIP = () => {
   const ip = []
   const networkInterfaces = os.networkInterfaces()
@@ -15,7 +15,6 @@ const localIP = () => {
 
 const getHost = () => {
   return {
-    localhost: '127.0.0.1',
     development: localIP()[0],
     production: localIP()[0]
   }[ENV]
@@ -23,15 +22,21 @@ const getHost = () => {
 
 const getPort = () => {
   return {
-    localhost: 2019,
     development: 2020,
-    production: 2021
+    production: 9102
+  }[ENV]
+}
+
+const getBaseUrl = () => {
+  return {
+    development: 'https://cnodejs.org/api/v1',
+    production: 'https://cnodejs.org'
   }[ENV]
 }
 
 module.exports = {
   host: getHost(),
   port: getPort(),
+  baseUrl: getBaseUrl(),
   hostName: `http://${getHost()}:${getPort()}`
 }
-

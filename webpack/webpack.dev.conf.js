@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // 清理 dist 中重复的文件
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -7,7 +8,6 @@ const FirendlyErrorWebpackPlugin = require('friendly-errors-webpack-plugin')
 // 编译完成后，打开浏览器
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const config = require('../config')
-
 module.exports = {
   entry: './src/index.tsx',
   output: {
@@ -17,7 +17,12 @@ module.exports = {
   },
   // resolve: 依赖的 module，被解决的方式
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    alias: {
+      '@/api': path.resolve(__dirname, '../src/api/'),
+      '@/server': path.resolve(__dirname, '../src/server/'),
+      'config': path.resolve(__dirname, '../config/'),
+    }
   },
   // plugins: 用于各种插件自定义 webpack 构建过程
   plugins: [
@@ -33,6 +38,11 @@ module.exports = {
     }),
     new OpenBrowserPlugin({
       url: `http://${config.host}:${config.port}`
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'ENV': '"development"'
+      },
     })
   ],
   // module: 对模块的源码进行转换
