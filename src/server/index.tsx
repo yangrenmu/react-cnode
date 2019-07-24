@@ -22,7 +22,7 @@ instance.interceptors.request.use(
 )
 
 instance.interceptors.response.use(
-  res => res.status === 200 ? Promise.resolve(res) : Promise.reject(res),
+  res => res.status === 200 ? Promise.resolve(res.data) : Promise.reject(res),
   error => Promise.reject(error.response)
 )
 

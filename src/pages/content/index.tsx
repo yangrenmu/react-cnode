@@ -4,7 +4,6 @@ import Topic from "../topic"
 import "./content.scss"
 export default class Content extends React.Component {
   defaultActive: any = (match: any, location: any) => {
-    console.log('------', location)
     if (location.pathname === '/' || location.pathname === '/topic/all') return true
   }
   render() {
