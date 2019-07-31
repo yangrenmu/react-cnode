@@ -1,37 +1,65 @@
-import * as React from "react"
-import { Route, NavLink, Switch } from "react-router-dom"
+import React, { useState } from "react"
+import { Route, Switch, withRouter } from "react-router-dom"
 import Topic from "../topic"
 import "./content.scss"
-export default class Content extends React.Component {
-  defaultActive: any = (match: any, location: any) => {
-    if (location.pathname === '/' || location.pathname === '/topic/all') return true
-  }
-  render() {
-    return (
-      <div className="main">
-        <div className="content">
-          <div className="header-bar">
-            <NavLink isActive={this.defaultActive} activeClassName="active-link" className="link" to={{ pathname: "/topic/all" }}>全部</NavLink>
-            <NavLink activeClassName="active-link" className="link" to={{ pathname: "/topic/good" }}>精华</NavLink>
-            <NavLink activeClassName="active-link" className="link" to={{ pathname: "/topic/share" }}>分享</NavLink>
-            <NavLink activeClassName="active-link" className="link" to={{ pathname: "/topic/ask" }}>问答</NavLink>
-            <NavLink activeClassName="active-link" className="link" to={{ pathname: "/topic/job" }}>招聘</NavLink>
-            <NavLink activeClassName="active-link" className="link" to={{ pathname: "/topic/dev" }}>客户端测试</NavLink>
-          </div>
-          <Switch>
-            <Route path="/topic/:type" component={Topic} />
-            <Route path="/" component={Topic} />
-          </Switch>
 
-        </div>
-        <div className="side-bar">
-          <div className="float">profile</div>
-          <div className="float">topic</div>
-          <div className="float">rank</div>
-          <div className="float">friend community</div>
-          <div className="float">app</div>
-        </div>
-      </div>
-    )
+interface Props {
+  history: {
+    push: any
   }
 }
+
+const BAR = [{
+  type: 'all',
+  title: '全部'
+}, {
+  type: 'good',
+  title: '精华'
+}, {
+  type: 'share',
+  title: '分享'
+}, {
+  type: 'ask',
+  title: '问答'
+}, {
+  type: 'job',
+  title: '招聘'
+}]
+
+const Content = (props: Props) => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const topicRouter = (type, index) => {
+    setCurrentIndex(index)
+    props.history.push(`/topic/${type}`)
+  }
+  const renderBar = () => {
+    const barElement = BAR.map((item, index) => {
+      return (
+        <span key={item.type} className={index === currentIndex ? 'active-link link' : 'link'} onClick={() => { topicRouter(item.type, index) }}>{item.title}</span>
+      )
+    })
+    return barElement
+  }
+  return (
+    <div className="main">
+      <div className="content">
+        <div className="header-bar">
+          {renderBar()}
+        </div>
+        <Switch>
+          <Route path="/topic/:type" component={Topic} />
+          <Route path="/" component={Topic} />
+        </Switch>
+      </div>
+      <div className="side-bar">
+        <div className="float">profile</div>
+        <div className="float">topic</div>
+        <div className="float">rank</div>
+        <div className="float">friend community</div>
+        <div className="float">app</div>
+      </div>
+    </div>
+  )
+}
+
+export default withRouter(Content)
