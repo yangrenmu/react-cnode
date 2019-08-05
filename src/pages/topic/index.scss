@@ -3,12 +3,14 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
+    background: #fff;
     .topic-detail {
       width: 80%;
       flex: 0 0 auto;
       display: flex;
       align-items: center;
       height: 50px;
+
       &-avatar {
         margin: 0 10px;
         width: 30px;

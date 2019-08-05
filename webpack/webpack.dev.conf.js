@@ -21,6 +21,7 @@ module.exports = {
     alias: {
       '@/api': path.resolve(__dirname, '../src/api/'),
       '@/server': path.resolve(__dirname, '../src/server/'),
+      '@/pages': path.resolve(__dirname, '../src/pages/'),
       'config': path.resolve(__dirname, '../config/'),
     }
   },

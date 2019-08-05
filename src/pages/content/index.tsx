@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Route, Switch, withRouter } from "react-router-dom"
-import Topic from "../topic"
+import Topic from "@/pages/Topic"
+import Profile from "@/pages/profile"
 import "./content.scss"
 
 interface Props {
@@ -43,20 +44,18 @@ const Content = (props: Props) => {
   return (
     <div className="main">
       <div className="content">
-        <div className="header-bar">
-          {renderBar()}
+        <div className="topic">
+          <div className="header-bar">
+            {renderBar()}
+          </div>
+          <Switch>
+            <Route path="/topic/:type" component={Topic} />
+            <Route path="/" component={Topic} />
+          </Switch>
         </div>
-        <Switch>
-          <Route path="/topic/:type" component={Topic} />
-          <Route path="/" component={Topic} />
-        </Switch>
-      </div>
-      <div className="side-bar">
-        <div className="float">profile</div>
-        <div className="float">topic</div>
-        <div className="float">rank</div>
-        <div className="float">friend community</div>
-        <div className="float">app</div>
+        <div className="side-bar">
+          <Profile />
+        </div>
       </div>
     </div>
   )

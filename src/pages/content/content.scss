@@ -1,29 +1,36 @@
 .main {
-  .float {
-    float: right;
-  }
   padding: 15px 3%;
   background-color: #e1e1e1;
   .content {
-    margin: 0 20% 0 0;
-    background: #fff;
+    margin: 0 auto;
+    display: flex;
+    width: 98%;
+    max-width: 1400px;
+    justify-content: center;
     border-radius: 3px 3px 0 0;
-    .header-bar {
-      padding: 10px;
-      background: #f6f6f6;
-      border-radius: 3px;
-      .link {
-        font-size: 14px;
-        margin: 0 10px;
-        padding: 1px 4px;
-        color: #80bd01;
-        text-decoration: none;
+    .topic {
+      width: 76%;
+      .header-bar {
+        padding: 10px;
+        background: #f6f6f6;
         border-radius: 3px;
+        .link {
+          font-size: 14px;
+          margin: 0 10px;
+          padding: 1px 4px;
+          color: #80bd01;
+          text-decoration: none;
+          border-radius: 3px;
+        }
+        .active-link {
+          color: #fff;
+          background: #80bd01;
+        }
       }
-      .active-link {
-        color: #fff;
-        background: #80bd01;
-      }
+    }
+    .side-bar {
+      width: 24%;
+      margin: 0 0 0 20px;
     }
   }
 }

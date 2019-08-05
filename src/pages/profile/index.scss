@@ -1,0 +1,21 @@
+.profile {
+  .login {
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    background: #fff;
+    .cnode-text,
+    .cnode-login {
+      margin: 0 0 10px 0;
+    }
+    .github-login {
+      display: inline-block;
+      padding: 0 10px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      background: #5bc0de;
+      border-radius: 4px;
+    }
+  }
+}

@@ -10,7 +10,8 @@ a {
 }
 ul,
 menu,
-dir {
+dir,
+p {
   display: block;
   list-style-type: disc;
   margin-block-start: 0em;
