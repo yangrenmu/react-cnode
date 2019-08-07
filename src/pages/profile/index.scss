@@ -1,3 +1,15 @@
+.wrap {
+  margin: 10px 0 0 0;
+  background: #fff;
+  border-radius: 3px;
+  font-size: 14px;
+}
+.title {
+  display: block;
+  padding: 10px;
+  color: #51585c;
+  background: #f6f6f6;
+}
 .profile {
   .login {
     padding: 10px;
@@ -16,6 +28,45 @@
       color: #fff;
       background: #5bc0de;
       border-radius: 4px;
+    }
+  }
+  .no-reply {
+    @extend .wrap;
+    &-title {
+      @extend .title;
+    }
+    &-topic {
+      display: block;
+      padding: 0 10px;
+      line-height: 30px;
+      max-width: 100%;
+      color: #778087;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .top100 {
+    @extend .wrap;
+    &-title {
+      @extend .title;
+    }
+    &-user {
+      display: block;
+      padding: 0 10px;
+      line-height: 30px;
+      color: #778087;
+    }
+  }
+  .frend-ship {
+    @extend .wrap;
+    &-title {
+      @extend .title;
+    }
+    &-image {
+      margin: 0 10px;
+      width: 150px;
+      height: 100%;
     }
   }
 }
