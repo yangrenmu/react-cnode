@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { withRouter } from 'react-router-dom'
 import moment from 'moment'
 import { getTopicList } from '@/api'
 import './index.scss'
@@ -6,6 +7,9 @@ import './index.scss'
 interface Props {
   match: {
     params: any
+  },
+  history: {
+    push: any
   }
 }
 
@@ -25,6 +29,10 @@ const Topic = (props: Props) => {
     })
   }, [type])
 
+  const jumpTopicDetail = (id) => {
+    props.history.push(`/topics?id=${id}`)
+  }
+
   const renderList = (topicList) => {
     const listElement = topicList.map((item, index) => {
       // 汉化 moment
@@ -32,7 +40,7 @@ const Topic = (props: Props) => {
       const replayAt = moment(item.last_reply_at).fromNow()
       return (
         <div className="topic-item" key={index}>
-          <div className="topic-detail">
+          <div onClick={() => { jumpTopicDetail(item.id) }} className="topic-detail">
             <img className="topic-detail-avatar" src={item.author.avatar_url} alt="" />
             <span className="topic-detail-type">{'置顶'}</span>
             <span className="topic-detail-title">{item.title}</span>
@@ -55,4 +63,4 @@ const Topic = (props: Props) => {
   )
 }
 
-export default Topic
+export default withRouter(Topic)
